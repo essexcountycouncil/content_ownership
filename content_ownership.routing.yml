@@ -3,13 +3,12 @@
 # Route name can be used in several places; e.g. links, redirects, and local
 # actions.
 entity.content_owner_sme.canonical:
-  path: 'admin/content//content_owner_sme/{content_owner_sme}'
+  path: 'admin/content/content_ownership/{content_owner_sme}'
   defaults:
     # Calls the view controller, defined in the annotation of the contact entity
     _entity_view: 'content_owner_sme'
     _title: 'Content Owner/SME'
   requirements:
-    # Calls the access controller of the entity, $operation 'view'
     _entity_access: 'content_owner_sme.view'
 
 entity.content_owner_sme.collection:
