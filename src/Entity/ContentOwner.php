@@ -34,12 +34,13 @@ use Drupal\Core\Field\BaseFieldDefinition;
  *     "uuid" = "uuid"
  *   },
  *   links = {
- *     "canonical" = "/content_owner_sme/{content_owner_sme}",
- *     "edit-form" = "/content_owner_sme/{content_owner_sme}/edit",
- *     "delete-form" = "/content_ownership/{content_owner_sme}/delete",
- *     "collection" = "/content_ownership/list"
+ *     "canonical" = "/admin/content/content_ownership/{content_owner_sme}",
+ *     "add-page" = "/admin/content/content_ownership/add",
+ *     "add-form" = "/admin/content/content_ownership/add/{content_owner_sme}",
+ *     "edit-form" = "/admin/content/content_ownership/{content_owner_sme}/edit",
+ *     "delete-form" = "/admin/content/content_ownership/{content_owner_sme}/delete",
+ *     "collection" = "/admin/content/content_ownership/list",
  *   },
- *   field_ui_base_route = "content_entity_example.contact_settings",
  * )
  *
  * The 'links' above are defined by their path. For core to find the corresponding
@@ -73,13 +74,13 @@ class ContentOwner extends ContentEntityBase {
     // Standard field, used as unique if primary index.
     $fields['id'] = BaseFieldDefinition::create('integer')
       ->setLabel(t('ID'))
-      ->setDescription(t('The ID of the Advertiser entity.'))
+      ->setDescription(t('The ID of the Content Ownership entity.'))
       ->setReadOnly(TRUE);
 
     // Standard field, unique outside of the scope of the current project.
     $fields['uuid'] = BaseFieldDefinition::create('uuid')
       ->setLabel(t('UUID'))
-      ->setDescription(t('The UUID of the Advertiser entity.'))
+      ->setDescription(t('The UUID of the Content Ownership entity.'))
       ->setReadOnly(TRUE);
 
     $fields['name'] = BaseFieldDefinition::create('string')

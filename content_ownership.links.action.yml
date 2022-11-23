@@ -2,7 +2,7 @@
 
 content_owner_sme.contact_add:
   # Which route will be called by the link
-  route_name: content_owner_sme.contact_add
+  route_name: entity.content_owner_sme.contact_add
   title: 'Add Contact Owner/SME'
 
   # Where will the link appear, defined by route name.
