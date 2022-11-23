@@ -21,7 +21,7 @@ entity.content_owner_sme.collection:
     # Checks for permission directly.
     _permission: 'administer content owner/sme entity'
 
-content_owner_sme.contact_add:
+entity.content_owner_sme.contact_add:
   path: 'admin/content/content_ownership/add'
   defaults:
     # Calls the form.add controller, defined in the contact entity.
