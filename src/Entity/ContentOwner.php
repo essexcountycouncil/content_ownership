@@ -118,8 +118,7 @@ class ContentOwner extends ContentEntityBase {
         'weight' => -3,
       ])
       ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE)
-      ->setRequired(TRUE);
+      ->setDisplayConfigurable('view', TRUE);
 
     $fields['role'] = BaseFieldDefinition::create('list_string')
       ->setLabel(t('Role'))
@@ -141,8 +140,7 @@ class ContentOwner extends ContentEntityBase {
         'weight' => -2,
       ])
       ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE)
-      ->setRequired(TRUE);
+      ->setDisplayConfigurable('view', TRUE);
 
     $fields['notes'] = BaseFieldDefinition::create('string_long')
       ->setLabel(t('Notes'))

@@ -22,7 +22,7 @@ class ContentOwnerListBuilder extends EntityListBuilder {
    */
   public function render() {
     $build['description'] = [
-      '#markup' => $this->t('Content Entity Example implements a Contacts model. These contacts are fieldable entities.'),
+      '#markup' => $this->t('These Content Owners are fieldable entities.'),
     ];
 
     $build += parent::render();
@@ -50,10 +50,14 @@ class ContentOwnerListBuilder extends EntityListBuilder {
   public function buildRow(EntityInterface $entity) {
     /* @var $entity \Drupal\content_ownership\Entity\ContentOwner */
     $row['id'] = $entity->id();
-    $row['name'] = $entity->label();
+    $row['name'] = Link::createFromRoute(
+        $entity->label(),
+        'entity.content_owner_sme.edit_form',
+        ['content_owner_sme' => $entity->id()]
+    );
     $row['email'] = $entity->email->value;
     return $row + parent::buildRow($entity);
   }
 
 }
-?>
+

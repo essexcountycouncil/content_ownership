@@ -19,7 +19,7 @@ entity.content_owner_sme.collection:
     _title: 'Content Ownership List'
   requirements:
     # Checks for permission directly.
-    _permission: 'administer content owner/sme entity'
+    _permission: 'view content owner/sme entity'
 
 entity.content_owner_sme.contact_add:
   path: 'admin/content/content_ownership/add'

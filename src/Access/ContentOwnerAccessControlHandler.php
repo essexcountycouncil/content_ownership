@@ -23,13 +23,13 @@ class ContentOwnerAccessControlHandler extends EntityAccessControlHandler {
   protected function checkAccess(EntityInterface $entity, $operation, AccountInterface $account) {
     switch ($operation) {
       case 'view':
-        return AccessResult::allowedIfHasPermission($account, 'view content owner/sme entity entity');
+        return AccessResult::allowedIfHasPermission($account, 'view content owner/sme entity');
 
       case 'edit':
-        return AccessResult::allowedIfHasPermission($account, 'edit content owner/sme entity entity');
+        return AccessResult::allowedIfHasPermission($account, 'edit content owner/sme entity');
 
       case 'delete':
-        return AccessResult::allowedIfHasPermission($account, 'delete content owner/sme entity entity');
+        return AccessResult::allowedIfHasPermission($account, 'delete content owner/sme entity');
     }
     return AccessResult::allowed();
   }
@@ -41,8 +41,8 @@ class ContentOwnerAccessControlHandler extends EntityAccessControlHandler {
    * will be created during the 'add' process.
    */
   protected function checkCreateAccess(AccountInterface $account, array $context, $entity_bundle = NULL) {
-    return AccessResult::allowedIfHasPermission($account, 'add content owner/sme entity entity');
+    return AccessResult::allowedIfHasPermission($account, 'add content owner/sme entity');
   }
 
 }
-?>
+
