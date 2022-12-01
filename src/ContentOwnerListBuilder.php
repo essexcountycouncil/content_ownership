@@ -4,7 +4,7 @@ namespace Drupal\content_ownership;
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityListBuilder;
-use Drupal\Core\Url;
+use Drupal\Core\Link;
 
 /**
  * Provides a list controller for content_owner_sme entity.
@@ -48,7 +48,7 @@ class ContentOwnerListBuilder extends EntityListBuilder {
    * {@inheritdoc}
    */
   public function buildRow(EntityInterface $entity) {
-    /* @var $entity \Drupal\content_ownership\Entity\ContentOwner */
+    /** @var \Drupal\content_ownership\Entity\ContentOwner $entity */
     $row['id'] = $entity->id();
     $row['name'] = Link::createFromRoute(
         $entity->label(),
@@ -60,4 +60,3 @@ class ContentOwnerListBuilder extends EntityListBuilder {
   }
 
 }
-
