@@ -118,7 +118,8 @@ class ContentOwner extends ContentEntityBase {
         'weight' => -3,
       ])
       ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE);
+      ->setDisplayConfigurable('view', TRUE)
+      ->addConstraint('UniqueField');
 
     $fields['role'] = BaseFieldDefinition::create('list_string')
       ->setLabel(t('Role'))
@@ -126,8 +127,9 @@ class ContentOwner extends ContentEntityBase {
       ->setCardinality(1)
       ->setSettings([
         'allowed_values' => [
-          'content_owner' => 'Content Owner',
-          'content_sme'   => 'Content SME'
+          'content_owner'       => 'Content Owner',
+          'content_sme'         => 'Content SME',
+          'content_owner_sme'   => 'Content Owner and SME'
           ]
       ])
       ->setDisplayOptions('view', [
@@ -136,11 +138,12 @@ class ContentOwner extends ContentEntityBase {
         'weight' => -2,
       ])
       ->setDisplayOptions('form', [
-        'type' => 'options_buttons',
+        'type' => 'options_list',
         'weight' => -2,
       ])
       ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE);
+      ->setDisplayConfigurable('view', TRUE)
+      ->setRequired(TRUE);
 
     $fields['notes'] = BaseFieldDefinition::create('string_long')
       ->setLabel(t('Notes'))

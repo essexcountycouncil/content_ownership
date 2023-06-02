@@ -41,6 +41,7 @@ class ContentOwnerListBuilder extends EntityListBuilder {
     $header['id'] = $this->t('Content Owner ID');
     $header['name'] = $this->t('Display Name');
     $header['email'] = $this->t('E-mail');
+    $header['role'] = $this->t('Role');
     return $header + parent::buildHeader();
   }
 
@@ -56,6 +57,9 @@ class ContentOwnerListBuilder extends EntityListBuilder {
         ['content_owner_sme' => $entity->id()]
     );
     $row['email'] = $entity->email->value;
+    $values = $entity->getFieldDefinition('role')->getFieldStorageDefinition()->getSetting('allowed_values');
+    $role_value = $entity->role->value;
+    $row['role'] = $values[$role_value];
     return $row + parent::buildRow($entity);
   }
 
