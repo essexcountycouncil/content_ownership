@@ -11,7 +11,7 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Provides an entity reference selection for topics.
+ * Provides an entity reference selection for Subject matter experts.
  *
  * @EntityReferenceSelection(
  *   id = "content_sme_reference",
@@ -23,5 +23,5 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 class ContentSmeReference extends ContentOwnershipSelectionBase {
 
-  public $roles = ['content_sme', 'content_owner_sme'];
+  public array $roles = ['content_sme', 'content_owner_sme'];
 }

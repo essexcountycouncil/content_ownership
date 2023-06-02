@@ -11,7 +11,7 @@ class ContentOwnershipSelectionBase extends DefaultSelection {
     /**
      * @var array list of valid roles to filter.
      */
-    public array $roles = [];
+    public array $roles = ['one'];
 
   /**
    * The entity type manager.

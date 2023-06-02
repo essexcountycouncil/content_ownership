@@ -11,11 +11,11 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Provides an entity reference selection for topics.
+ * Provides an entity reference selection for Content owners.
  *
  * @EntityReferenceSelection(
  *   id = "content_ownership",
- *   label = @Translation("Content SME entities"),
+ *   label = @Translation("Content ownership"),
  *   entity_types = {"content_owner_sme"},
  *   group = "content_ownership",
  *   weight = 0
@@ -23,5 +23,5 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 class ContentOwnershipReference extends ContentOwnershipSelectionBase {
 
-  public $roles = ['content_owner', 'content_owner_sme'];
+  public array $roles = ['content_owner', 'content_owner_sme'];
 }
