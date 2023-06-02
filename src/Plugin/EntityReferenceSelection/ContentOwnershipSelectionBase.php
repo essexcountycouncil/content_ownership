@@ -8,7 +8,10 @@ use Drupal\Core\Entity\Query\QueryInterface;
 
 class ContentOwnershipSelectionBase extends DefaultSelection {
 
-  public $roles = [];
+    /**
+     * @var array list of valid roles to filter.
+     */
+    public array $roles = [];
 
   /**
    * The entity type manager.
@@ -45,6 +48,9 @@ class ContentOwnershipSelectionBase extends DefaultSelection {
     return $query;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function getReferenceableEntities($match = NULL, $match_operator = 'CONTAINS', $limit = 0) {
     $query = $this->buildEntityQuery($match, $match_operator);
 
