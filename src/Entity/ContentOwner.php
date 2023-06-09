@@ -102,6 +102,7 @@ class ContentOwner extends ContentEntityBase {
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE)
+      ->addConstraint('UniqueField')
       ->setRequired(TRUE);
 
     $fields['email'] = BaseFieldDefinition::create('email')
