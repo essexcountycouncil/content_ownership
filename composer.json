@@ -2,10 +2,5 @@
     "name": "essexcountycouncil/content_ownership",
     "description": "For specifying an entity for the creation/migration of Content Owners/Content SME",
     "type": "drupal-module",
-    "authors": [
-        {
-            "name": "Nathan Brettell",
-            "email": "nbrettell@nomensa.com"
-        }
-    ]
+    "homepage": "https://github.com/essexcountycouncil/ecc_cludo_search"
 }
