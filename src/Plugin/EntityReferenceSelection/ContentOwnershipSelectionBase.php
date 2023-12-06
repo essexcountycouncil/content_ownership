@@ -6,12 +6,17 @@ use Drupal\Component\Utility\Html;
 use Drupal\Core\Entity\Plugin\EntityReferenceSelection\DefaultSelection;
 use Drupal\Core\Entity\Query\QueryInterface;
 
+/**
+ * Base class for content entity reference selection.
+ */
 class ContentOwnershipSelectionBase extends DefaultSelection {
 
-    /**
-     * @var array list of valid roles to filter.
-     */
-    public array $roles = [];
+  /**
+   * List of valid roles to filter.
+   *
+   * @var array
+   */
+  public array $roles = [];
 
   /**
    * The entity type manager.
@@ -27,8 +32,6 @@ class ContentOwnershipSelectionBase extends DefaultSelection {
    *   Text to match the label against.
    * @param string $match_operator
    *   The operation the matching should be done with.
-   * @param int $eventId
-   *   The current enitity id.
    *
    * @return \Drupal\Core\Entity\Query\QueryInterface
    *   The query object that can query the given entity type.
@@ -36,6 +39,7 @@ class ContentOwnershipSelectionBase extends DefaultSelection {
   protected function buildEntityQuery($match = NULL, $match_operator = 'CONTAINS'): QueryInterface {
     $query = $this->entityTypeManager->getStorage('content_owner_sme')->getQuery();
     $query->condition('role', $this->roles, 'IN');
+    $query->accessCheck();
 
     if (isset($match)) {
       $query->condition('name', $match, $match_operator);
@@ -74,4 +78,5 @@ class ContentOwnershipSelectionBase extends DefaultSelection {
 
     return $options;
   }
+
 }
