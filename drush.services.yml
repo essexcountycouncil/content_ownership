@@ -1,0 +1,7 @@
+services:
+  content_ownership_drush:
+    class: \Drupal\content_ownership\Commands\ContentOwnership
+    arguments:
+      - '@entity_type.manager'
+    tags:
+      - { name: drush.command }
