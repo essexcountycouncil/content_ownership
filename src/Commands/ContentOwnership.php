@@ -86,15 +86,10 @@ class ContentOwnership extends DrushCommands {
 
     $node_storage = $this->entityTypeManager->getStorage('node');
     $ids = $node_storage->getQuery()
-      ->exists('field_content_owner')
       ->accessCheck(FALSE)
       ->execute();
     /** @var \Drupal\node\NodeInterface $node */
     foreach ($node_storage->loadMultiple($ids) as $node) {
-      if (!$node->hasField('field_content_owner')) {
-        continue;
-      }
-
       $content_owners = [];
       // Combine content owners of both types without duplication.
       foreach ($node->get('field_content_owner')->referencedEntities() as $entity) {
