@@ -92,11 +92,17 @@ class ContentOwnership extends DrushCommands {
     foreach ($node_storage->loadMultiple($ids) as $node) {
       $content_owners = [];
       // Combine content owners of both types without duplication.
-      foreach ($node->get('field_content_owner')->referencedEntities() as $entity) {
-        $content_owners[$entity->id()] = $entity;
+      if ($node->hasField('field_content_owner')) {
+        foreach ($node->get('field_content_owner')
+          ->referencedEntities() as $entity) {
+          $content_owners[$entity->id()] = $entity;
+        }
       }
-      foreach ($node->get('field_content_sme')->referencedEntities() as $entity) {
-        $content_owners[$entity->id()] = $entity;
+      if ($node->hasField('field_content_sme')) {
+        foreach ($node->get('field_content_sme')
+          ->referencedEntities() as $entity) {
+          $content_owners[$entity->id()] = $entity;
+        }
       }
 
       $count = 0;
