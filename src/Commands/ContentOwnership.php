@@ -94,7 +94,16 @@ class ContentOwnership extends DrushCommands {
       if (!$node->hasField('field_content_owner')) {
         continue;
       }
-      $content_owners = $node->get('field_content_owner')->referencedEntities();
+
+      $content_owners = [];
+      // Combine content owners of both types without duplication.
+      foreach ($node->get('field_content_owner')->referencedEntities() as $entity) {
+        $content_owners[$entity->id()] = $entity;
+      }
+      foreach ($node->get('field_content_sme')->referencedEntities() as $entity) {
+        $content_owners[$entity->id()] = $entity;
+      }
+
       $count = 0;
       foreach ($content_owners as $content_owner) {
         $email = $content_owner->get('email')->value;
